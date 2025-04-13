@@ -12,6 +12,8 @@ from llama_index.core.tools import FunctionTool
 
 # Import the new DataLoadingAgent
 from agents.data_loading_agent import make_data_loading_agent
+import pandas as pd
+import io
 
 # Load environment variables from .env file
 load_dotenv()
@@ -62,32 +64,45 @@ divide_tool = FunctionTool.from_defaults(fn=divide)
 async def analyze_data(file: UploadFile = File(...)):
     """
     Analyze data using the DataLoadingAgent.
-    Loads and analyzes uploaded files.
+    Loads and analyzes CSV files for data insights.
     """
+    # Verify file is CSV
+    if not file.filename.endswith(".csv"):
+        return {
+            "error": "Only CSV files are supported",
+            "message": "Please upload a CSV file",
+        }
+
     # Read the file content
     file_content = await file.read()
 
-    # Create a data loading agent
+    # Convert file content to DataFrame
+
+    # Create DataFrame from CSV content
+    df = pd.read_csv(io.BytesIO(file_content))
+
+    # Create a data loading agent specialized for CSV processing
     data_agent = make_data_loading_agent(llm=llm)
 
+    # Initialize workflow with DataFrame in context
     workflow = AgentWorkflow(
         agents=[data_agent],
         root_agent=data_agent.name,
         initial_state={
-            "Plan": "No Plan Formulated",
-            "File Contents": file_content,
+            "Plan": "Process and analyze CSV data",
+            "DataFrame": df,
             "File Name": file.filename,
+            "File Type": "CSV",
         },
     )
 
-    # workflow = AgentWorkflow(agents=[data_agent])
-
-    response = await workflow.run(user_msg="What is the name of the file?")
-
-    # Process the file using the agent
+    # Run the CSV analysis workflow
+    response = await workflow.run(
+        user_msg="Analyze this CSV file and provide summary statistics"
+    )
 
     return {
-        "message": "Data analysis completed",
+        "message": "CSV analysis completed",
         "data": response,
     }
 
