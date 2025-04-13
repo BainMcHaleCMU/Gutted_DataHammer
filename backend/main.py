@@ -10,11 +10,10 @@ from llama_index.core.agent.workflow import AgentWorkflow, FunctionAgent
 from llama_index.core.workflow import Context
 from llama_index.core.tools import FunctionTool
 
-# Import the new DataLoadingAgent
+# Import the agents
 from agents.data_loading_agent import make_data_loading_agent
-
-# Import the new DataExplorationAgent
 from agents.data_exploration_agent import make_data_exploration_agent
+from agents.manager_agent import make_manager_agent
 import pandas as pd
 import io
 
@@ -68,7 +67,7 @@ async def analyze_data(
     file: UploadFile = File(...), user_instructions: str = Form(None)
 ):
     """
-    Analyze data using the DataLoadingAgent.
+    Analyze data using the Manager Agent which coordinates between specialized agents.
     Loads and analyzes CSV files for data insights based on user instructions.
     """
     # Verify file is CSV
@@ -84,11 +83,11 @@ async def analyze_data(
     # Create DataFrame from CSV content
     df = pd.read_csv(io.BytesIO(file_content))
 
-    # Create a data loading agent specialized for CSV processing
+    # Create all agents
     data_agent = make_data_loading_agent(llm=llm)
-
-    # Create a data exploration agent for data analysis
     exploration_agent = make_data_exploration_agent(llm=llm)
+    manager_agent = make_manager_agent(llm=llm)
+
     # Set default analysis message if no user instructions provided
     analysis_message = "Analyze this CSV file and provide summary statistics"
 
@@ -96,16 +95,22 @@ async def analyze_data(
     if user_instructions:
         analysis_message = f"Analyze this CSV file with the following instructions: {user_instructions}"
 
-    # Initialize workflow with DataFrame in context
+    # Initialize workflow with DataFrame in context and manager as root agent
     workflow = AgentWorkflow(
-        agents=[data_agent, exploration_agent],
-        root_agent=data_agent.name,
+        agents=[data_agent, exploration_agent, manager_agent],
+        root_agent=manager_agent.name,  # Set manager agent as the root
         initial_state={
-            "Plan": "Process and analyze CSV data based on user instructions",
+            "Plan": "No plan made so far.",
             "DataFrame": df,
             "File Name": file.filename,
             "File Type": "CSV",
             "Observations": [],
+            "User Question": (
+                user_instructions
+                if user_instructions
+                else "Provide a comprehensive analysis of this dataset"
+            ),
+            "Analysis Status": "initialized",
         },
     )
 
