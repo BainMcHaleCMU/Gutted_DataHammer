@@ -608,13 +608,13 @@ def make_manager_agent(llm) -> FunctionAgent:
         FunctionAgent for managing the analysis workflow
     """
     tools = [
-        # FunctionTool.from_defaults(fn=create_analysis_plan),
+        FunctionTool.from_defaults(fn=create_analysis_plan),
         # FunctionTool.from_defaults(fn=delegate_to_agent),
-        # FunctionTool.from_defaults(fn=track_progress),
-        # FunctionTool.from_defaults(fn=update_step_status),
-        # FunctionTool.from_defaults(fn=synthesize_results),
-        # FunctionTool.from_defaults(fn=determine_completion),
-        # FunctionTool.from_defaults(fn=execute_next_step),
+        FunctionTool.from_defaults(fn=track_progress),
+        FunctionTool.from_defaults(fn=update_step_status),
+        FunctionTool.from_defaults(fn=synthesize_results),
+        FunctionTool.from_defaults(fn=determine_completion),
+        FunctionTool.from_defaults(fn=execute_next_step),
     ]
 
     agent = FunctionAgent(
