@@ -7,9 +7,11 @@ import uvicorn
 
 from llama_index.llms.gemini import Gemini
 from llama_index.core.agent.workflow import AgentWorkflow, FunctionAgent
-
-# from llama_index.core.agent.workflow import ReActAgent
+from llama_index.core.workflow import Context
 from llama_index.core.tools import FunctionTool
+
+# Import the new DataLoadingAgent
+from agents.data_loading_agent import make_data_loading_agent
 
 # Load environment variables from .env file
 load_dotenv()
@@ -59,22 +61,34 @@ divide_tool = FunctionTool.from_defaults(fn=divide)
 @app.post("/analyze")
 async def analyze_data(file: UploadFile = File(...)):
     """
-    Analyze data using the traditional approach.
-    Returns fixed sample responses for now.
+    Analyze data using the DataLoadingAgent.
+    Loads and analyzes uploaded files.
     """
-    agent = FunctionAgent(
-        tools=[multiply_tool, add_tool, subtract_tool, divide_tool],
-        llm=llm,
-        system_prompt="You are a helpful assistant that can search the web for information.",
-    )
-    workflow = AgentWorkflow(agents=[agent])
+    # Read the file content
+    file_content = await file.read()
 
-    response = await workflow.run(user_msg="What is 47 * 32?")
-    return {
-        "message": "Traditional data analysis completed",
-        "data": {
-            "sample_response": response,
+    # Create a data loading agent
+    data_agent = make_data_loading_agent(llm=llm)
+
+    workflow = AgentWorkflow(
+        agents=[data_agent],
+        root_agent=data_agent.name,
+        initial_state={
+            "Plan": "No Plan Formulated",
+            "File Contents": file_content,
+            "File Name": file.filename,
         },
+    )
+
+    # workflow = AgentWorkflow(agents=[data_agent])
+
+    response = await workflow.run(user_msg="What is the name of the file?")
+
+    # Process the file using the agent
+
+    return {
+        "message": "Data analysis completed",
+        "data": response,
     }
 
 
