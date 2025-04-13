@@ -1,0 +1,133 @@
+TransactionID,Timestamp,CustomerName,CustomerType,Item,Quantity,UnitPrice,TotalPrice,PaymentMethod,TimeOfDay,DayOfWeek,DayOfMonth,MonthOfYear,Season,Weather,PromotionsApplied,StaffMember
+1,8/15/23 7:32,Sophia Rodriguez,Walk-in,Croissant,2,3.5,7,Card,Morning,Tuesday,15,August,Summer,Sunny,None,Alice
+2,8/15/23 7:45,Oliver Jackson,Walk-in,Coffee,1,2.5,2.5,Cash,Morning,Tuesday,15,August,Summer,Sunny,None,Bob
+3,8/15/23 8:10,Isabella Nguyen,Online Order,Bagel with Cream Cheese,1,4,4,Card,Morning,Tuesday,15,August,Summer,Sunny,None,Alice
+4,8/15/23 8:35,Ethan Williams,Walk-in,Muffin,1,3,3,Card,Morning,Tuesday,15,August,Summer,Sunny,None,Bob
+5,8/15/23 9:02,Mia Brown,Walk-in,Scone,1,4.5,4.5,Cash,Morning,Tuesday,15,August,Summer,Sunny,None,Alice
+6,8/15/23 9:48,Noah Davis,Walk-in,Coffee,1,2.5,2.5,Card,Morning,Tuesday,15,August,Summer,Sunny,None,Bob
+7,8/15/23 10:15,Ava Miller,Walk-in,Bread Loaf - Sourdough,1,6,6,Card,Midday,Tuesday,15,August,Summer,Sunny,,Alice
+8,8/15/23 11:01,William Wilson,Walk-in,Cookie - Chocolate Chip,3,2,6,Cash,Midday,Tuesday,15,August,Summer,Sunny,,Bob
+9,8/15/23 12:20,Chloe Moore,Walk-in,Sandwich - Ham & Cheese,1,7.5,7.5,Card,Midday,Tuesday,15,August,Summer,Sunny,,Alice
+10,8/15/23 13:45,James Taylor,Walk-in,Pastry - Apple Turnover,1,4,4,Cash,Afternoon,Tuesday,15,August,Summer,Sunny,,Bob
+11,8/15/23 14:30,Abigail Anderson,Walk-in,Cake Slice - Chocolate,1,5,5,Card,Afternoon,Tuesday,15,August,Summer,Sunny,,Alice
+12,8/15/23 15:18,Alexander Thomas,Walk-in,Tea - Black,1,3,3,Cash,Afternoon,Tuesday,15,August,Summer,Sunny,,Bob
+13,8/15/23 16:05,Madison Hernandez,Walk-in,Cookie - Oatmeal Raisin,2,2,4,Card,Afternoon,Tuesday,15,August,Summer,Sunny,,Alice
+14,8/15/23 17:22,Jacob Green,Walk-in,Bread Loaf - Whole Wheat,1,5.5,5.5,Cash,Evening,Tuesday,15,August,Summer,Sunny,,Bob
+15,8/15/23 18:40,Emily Baker,Walk-in,Coffee - Decaf,1,2.5,2.5,Card,Evening,Tuesday,15,August,Summer,Sunny,,Alice
+16,8/15/23 19:55,Michael King,Walk-in,Pastry - Cinnamon Roll,1,4.5,4.5,Cash,Evening,Tuesday,15,August,Summer,Sunny,,Bob
+17,8/16/23 7:15,Ella Wright,Walk-in,Croissant,1,3.5,3.5,Card,Morning,Wednesday,16,August,Summer,Cloudy,,Alice
+18,8/16/23 7:30,Daniel Lopez,Walk-in,Latte,1,4,4,Cash,Morning,Wednesday,16,August,Summer,Cloudy,,Bob
+19,8/16/23 8:00,Grace Hill,Online Order,Muffin - Blueberry,2,3,6,Card,Morning,Wednesday,16,August,Summer,Cloudy,None,Alice
+20,8/16/23 8:40,Matthew Scott,Walk-in,Bagel - Everything,1,3.5,3.5,Cash,Morning,Wednesday,16,August,Summer,Cloudy,None,Bob
+21,8/16/23 9:10,Victoria Diaz,Walk-in,Scone - Blueberry,1,4.5,4.5,Card,Morning,Wednesday,16,August,Summer,Cloudy,None,Alice
+22,8/16/23 9:55,Joseph Phillips,Walk-in,Coffee,2,2.5,5,Cash,Morning,Wednesday,16,August,Summer,Cloudy,None,Bob
+23,8/16/23 10:30,Lily Evans,Pre-Order,Bread Loaf - Rye,3,5.5,16.5,Card,Midday,Wednesday,16,August,Summer,Cloudy,None,Alice
+24,8/16/23 11:15,Andrew Collins,Walk-in,Cookie - Peanut Butter,4,2,8,Cash,Midday,Wednesday,16,August,Summer,Cloudy,None,Bob
+25,8/16/23 12:40,Natalie Stewart,Walk-in,Sandwich - Turkey & Swiss,1,8,8,Card,Midday,Wednesday,16,August,Summer,Cloudy,None,Alice
+26,8/16/23 14:00,Samuel Morris,Walk-in,Pastry - Pain au Chocolat,1,4.5,4.5,Cash,Afternoon,Wednesday,16,August,Summer,Cloudy,None,Bob
+27,8/16/23 14:45,Brooklyn Murphy,Walk-in,Cake Slice - Vanilla,1,5,5,Card,Afternoon,Wednesday,16,August,Summer,Cloudy,None,Alice
+28,8/16/23 15:30,David Rogers,Walk-in,Tea - Green,1,3,3,Cash,Afternoon,Wednesday,16,August,Summer,Cloudy,None,Bob
+29,8/16/23 16:20,Samantha Cook,Walk-in,Cookie - Sugar,1,2,2,Card,Afternoon,Wednesday,16,August,Summer,Cloudy,None,Alice
+30,8/16/23 17:40,Ryan Morgan,Walk-in,Bread Loaf - Multigrain,1,6,6,Cash,Evening,Wednesday,16,August,Summer,Cloudy,None,Bob
+31,8/16/23 19:00,Scarlett Bell,Walk-in,Hot Chocolate,1,3.5,3.5,Card,Evening,Wednesday,16,August,Summer,Cloudy,None,Alice
+32,8/16/23 20:10,Dylan Bailey,Walk-in,Pastry - Croissant Almond,1,5,5,Cash,Evening,Wednesday,16,August,Summer,Cloudy,None,Bob
+33,8/17/23 7:00,Taylor Reed,Walk-in,Croissant,2,3.5,7,Card,Morning,Thursday,17,August,Summer,Rainy,None,Alice
+34,8/17/23 7:20,Kaylee Cooper,Walk-in,Espresso,1,3,3,Cash,Morning,Thursday,17,August,Summer,Rainy,None,Bob
+35,8/17/23 7:50,Brandon Richardson,Online Order,Muffin - Chocolate Chip,1,3,3,Card,Morning,Thursday,17,August,Summer,Rainy,None,Alice
+36,8/17/23 8:30,Jasmine Murphy,Walk-in,Bagel - Plain,1,3,3,Cash,Morning,Thursday,17,August,Summer,Rainy,None,Bob
+37,8/17/23 9:00,Caleb Perry,Walk-in,Scone - Cranberry,1,4.5,4.5,Card,Morning,Thursday,17,August,Summer,Rainy,None,Alice
+38,8/17/23 9:40,Aubrey Foster,Walk-in,Coffee,1,2.5,2.5,Cash,Morning,Thursday,17,August,Summer,Rainy,None,Bob
+39,8/17/23 10:20,Angel Rivera,Pre-Order,Bread Loaf - Brioche,2,7,14,Card,Midday,Thursday,17,August,Summer,Rainy,None,Alice
+40,8/17/23 11:00,Julian Peterson,Walk-in,Cookie - Double Chocolate,5,2,10,Cash,Midday,Thursday,17,August,Summer,Rainy,None,Bob
+41,8/17/23 12:30,Claire Hayes,Walk-in,Sandwich - BLT,1,8.5,8.5,Card,Midday,Thursday,17,August,Summer,Rainy,None,Alice
+42,8/17/23 13:50,Owen Torres,Walk-in,Pastry - Danish,1,4,4,Cash,Afternoon,Thursday,17,August,Summer,Rainy,None,Bob
+43,8/17/23 14:35,Allison Gray,Walk-in,Cake Slice - Red Velvet,1,5.5,5.5,Card,Afternoon,Thursday,17,August,Summer,Rainy,None,Alice
+44,8/17/23 15:20,Isaac Henderson,Walk-in,Tea - Earl Grey,1,3,3,Cash,Afternoon,Thursday,17,August,Summer,Rainy,None,Bob
+45,8/17/23 16:10,Savannah Bennett,Walk-in,Cookie - Ginger Snap,3,2,6,Card,Afternoon,Thursday,17,August,Summer,Rainy,None,Alice
+46,8/17/23 17:30,Jeremiah Wood,Walk-in,Bread Loaf - Ciabatta,1,6.5,6.5,Cash,Evening,Thursday,17,August,Summer,Rainy,None,Bob
+47,8/17/23 18:50,Autumn Ramirez,Walk-in,Cappuccino,1,4.5,4.5,Card,Evening,Thursday,17,August,Summer,Rainy,None,Alice
+48,8/17/23 20:00,Connor James,Walk-in,Pastry - Eclair,1,5,5,Cash,Evening,Thursday,17,August,Summer,Rainy,None,Bob
+49,8/18/23 7:05,Riley Perry,Walk-in,Croissant,3,3.5,10.5,Card,Morning,Friday,18,August,Summer,Sunny,None,Alice
+50,8/18/23 7:25,Kayden Simmons,Walk-in,Americano,1,3,3,Cash,Morning,Friday,18,August,Summer,Sunny,None,Bob
+51,8/18/23 7:55,Lila Long,Online Order,Muffin - Banana Nut,1,3,3,Card,Morning,Friday,18,August,Summer,Sunny,None,Alice
+52,8/18/23 8:35,Nathan Barnes,Walk-in,Bagel - Sesame,1,3.5,3.5,Cash,Morning,Friday,18,August,Summer,Sunny,None,Bob
+53,8/18/23 9:05,Hazel Gray,Walk-in,Scone - Lemon Poppy Seed,1,4.5,4.5,Card,Morning,Friday,18,August,Summer,Sunny,None,Alice
+54,8/18/23 9:45,Lincoln Hayes,Walk-in,Coffee,3,2.5,7.5,Money,Morning,Friday,18,August,Summer,Sunny,None,Bob
+55,8/18/23 10:25,Willow Fisher,Pre-Order,Bread Loaf - Focaccia,1,7,7,Card,Midday,Friday,18,August,Summer,Sunny,None,Alice
+56,8/18/23 11:05,Jaxon Bryant,Walk-in,Cookie - White Chocolate Macadamia,2,2.5,5,Cash,Midday,Friday,18,August,Summer,Sunny,None,Bob
+57,8/18/23 12:35,Aurora Soto,Walk-in,Sandwich - Chicken Salad,1,9,9,Card,Midday,Friday,18,August,Summer,Sunny,None,Alice
+58,8/18/23 13:55,Adam Tran,Walk-in,Pastry - Bear Claw,1,5,5,Cash,Afternoon,Friday,18,August,Summer,Sunny,None,Bob
+59,8/18/23 14:40,Luna Chavez,Walk-in,Cake Slice - Carrot,1,5.5,5.5,Card,Afternoon,Friday,18,August,Summer,Sunny,None,Alice
+60,8/18/23 15:25,Jose Butler,Walk-in,Iced Coffee,1,3.5,3.5,Money,Afternoon,Friday,18,August,Summer,Sunny,None,Bob
+61,8/18/23 16:15,Eva Sanders,Walk-in,Cookie - Biscotti,2,2.5,5,Card,Afternoon,Friday,18,August,Summer,Sunny,None,Alice
+62,8/18/23 17:35,Adrian Kim,Walk-in,Bread Loaf - Olive,1,7,7,Cash,Evening,Friday,18,August,Summer,Sunny,None,Bob
+63,8/18/23 18:55,Sofia Wood,Walk-in,Mocha,1,4.75,4.75,Card,Evening,Friday,18,August,Summer,Sunny,None,Alice
+64,8/18/23 20:05,Easton Price,Walk-in,Pastry - Cannoli,1,5.5,5.5,Cash,Evening,Friday,18,August,Summer,Sunny,None,Bob
+65,8/19/23 8:00,Maya Howard,Walk-in,Croissant,4,3.5,14,Card,Morning,Saturday,19,August,Summer,Sunny,None,Alice
+66,8/19/23 8:20,Leo Ward,Walk-in,Latte,2,4,8,Cash,Morning,Saturday,19,August,Summer,Sunny,None,Bob
+67,8/19/23 8:45,Harper Diaz,Online Order,Muffin - Cornbread,1,3,3,Card,Morning,Saturday,19,August,Summer,Sunny,None,Alice
+68,8/19/23 9:15,Caleb Coleman,Walk-in,Bagel with Lox,1,8,8,Cash,Morning,Saturday,19,August,Summer,Sunny,None,Bob
+69,8/19/23 9:40,Penelope Stewart,Walk-in,Scone - Chocolate Chip,2,4.5,9,Card,Morning,Saturday,19,August,Summer,Sunny,None,Alice
+70,8/19/23 10:05,Jack Rivera,Walk-in,Coffee,4,2.5,10,Cash,Morning,Saturday,19,August,Summer,Sunny,None,Bob
+71,8/19/23 10:30,Eleanor Murphy,Pre-Order,Cake - Birthday Cake,1,35,35,Card,Midday,Saturday,19,August,Summer,Sunny,Birthday Cake Discount,Alice
+72,8/19/23 11:10,,Walkin,Cookie - Macaron,6,3,18,Cash,Midday,Saturday,19,August,Summer,Sunny,None,Bob
+73,8/19/23 12:00,Jonathan Foster,Walk-in,Sandwich - Club,1,9.5,9.5,Card,Midday,Saturday,19,August,Summer,Sunny,None,Alice
+74,8/19/23 12:45,Stella Simmons,Walk-in,Pastry - Kouign Amann,1,6,6,Cash,Midday,Saturday,19,August,Summer,Sunny,None,Bob
+75,8/19/23 13:30,Charles Long,Walk-in,Cake Slice - Lemon,2,5,10,Card,Afternoon,Saturday,19,August,Summer,Sunny,None,Alice
+76,8/19/23 14:15,Victoria Nelson,Walk-in,Lemonade,1,3.5,3.5,Cash,Afternoon,Saturday,19,August,Summer,Sunny,None,Bob
+77,8/19/23 15:00,Owen Carter,Walk-in,Cookie - Linzer,3,2.5,7.5,Card,Afternoon,Saturday,19,August,Summer,Sunny,None,Alice
+78,8/19/23 15:45,Hazel Ward,Walk-in,Bread Loaf - Baguette,1,4,4,Cash,Afternoon,Saturday,19,August,Summer,Sunny,None,Bob
+79,8/19/23 16:30,Luke James,Walk-in,Iced Tea,1,3,3,Card,Afternoon,Saturday,19,August,Summer,Sunny,None,Alice
+80,8/19/23 17:15,Paisley Butler,Walk-in,Pastry - Palmiers,2,3,6,Cash,Evening,Saturday,19,August,Summer,Sunny,None,Bob
+81,8/19/23 18:00,Julian Phillips,Walk-in,Cake - Chocolate Cake Whole,1,45,45,Card,Evening,Saturday,19,August,Summer,Sunny,Whole Cake Discount,Alice
+82,8/19/23 19:00,Madison Bell,Walk-in,Pastry - Tiramisu,1,6.5,6.5,Cash,Evening,Saturday,19,August,Summer,Sunny,None,Bob
+83,8/19/23 20:00,Gabriel Cooper,Walk-in,Herbal Tea,1,3,3,Card,Evening,Saturday,19,August,Summer,Sunny,None,Alice
+84,8/20/23 9:00,Avery Collins,Walk-in,Croissant,2,3.5,7,Card,Morning,Sunday,20,August,Summer,Cloudy,None,Bob
+85,8/20/23 9:20,Mateo Wright,Walk-in,Cappuccino,2,4.5,9,Cash,Morning,Sunday,20,August,Summer,Cloudy,None,Alice
+86,8/20/23 9:45,Riley Green,Walk-in,Muffin - Double Chocolate,1,3,3,Card,Morning,Sunday,20,August,Summer,Cloudy,None,Bob
+87,8/20/23 10:10,Aria Long,Walk-in,Bagel - Poppy Seed,1,3.5,3.5,Cash,Morning,Sunday,20,August,Summer,Cloudy,None,Alice
+88,8/20/23 10:35,Elijah Scott,Walk-in,Scone - Raspberry,1,4.5,4.5,Cash,Morning,Sunday,20,August,Summer,Cloudy,None,Bob
+89,8/20/23 11:00,Nora Hill,Walk-in,Coffee,2,2.5,5,Cash,Morning,Sunday,20,August,Summer,Cloudy,None,Alice
+90,8/20/23 11:25, Grayson Baker,Pre-Order,Cake - Chocolate Fudge Cake,1,40,40,Card,Midday,Sunday,20,August,Summer,Cloudy,Cake Pre-order Discount,Bob
+91,8/20/23 12:05,Scarlett Diaz,Walk-in,Cookie - Brownie,4,2.5,10,Cash,Midday,Sunday,20,August,Summer,Cloudy,None,Alice
+92,8/20/23 12:40,Jackson Turner,Walk-in,Sandwich - Vegetarian,1,8,8,Card,Midday,Sunday,20,August,Summer,Cloudy,None,Bob
+93,8/20/23 13:20,Chloe Wright,Walk-in,Pastry - Mille Feuille,1,6.5,6.5,Card,Afternoon,Sunday,20,August,Summer,Cloudy,None,Alice
+94,8/20/23 14:00,Owen Morgan,Walk-in,Juice - Orange,1,4,4,Card,Afternoon,Sunday,20,August,Summer,Cloudy,None,Bob
+95,8/20/23 14:40,Lily Evans,Walk-in,Cookie - Shortbread,2,2,4,Cash,Afternoon,Sunday,20,August,Summer,Cloudy,None,Alice
+96,8/20/23 15:20,Caleb Scott,Walk-in,Bread Loaf - Pumpernickel,1,6.5,6.5,Cash,Afternoon,Sunday,20,August,Summer,Cloudy,None,Bob
+97,8/20/23 16:00,Avery Reed,Walk-in,Chai Latte,1,4.5,4.5,Card,Afternoon,Sunday,20,August,Summer,Cloudy,None,Alice
+98,8/20/23 16:40,Evelyn White,Walk-in,Pastry - Madeleines,3,2.5,7.5,Cash,Evening,Sunday,20,August,Summer,Cloudy,None,Bob
+99,8/20/23 17:20,Jackson Phillips,Walk-in,Cake Slice - Coffee,1,5,5,Card,Evening,Sunday,20,August,Summer,Cloudy,None,Alice
+100,8/20/23 18:00,Sofia Murphy,Walk-in,Pastry - Financier,2,3.5,7,Cash,Evening,Sunday,20,August,Summer,Cloudy,None,Bob
+101,8/21/23 7:30,Jackson Davis,Walk-in,Croissant,1,3.5,3.5,Card,Morning,Monday,21,August,Summer,Sunny,None,Alice
+102,8/21/23 7:45,Luna Moore,Walk-in,Coffee,1,2.5,2.5,Cash,Morning,Monday,21,August,Summer,Sunny,None,Bob
+103,8/21/23 8:15,Ethan Taylor,Online Order,Bagel with Cream Cheese & Lox,1,9,9,Card,Morning,Monday,21,August,Summer,Sunny,None,Alice
+104,8/21/23 8:40,Mia Anderson,Walk-in,Muffin,1,3,3,Card,Morning,Monday,21,August,Summer,Sunny,None,Bob
+105,8/21/23 9:05,Noah Hernandez,Walk-in,Scone,1,4.5,4.5,Cash,Morning,Monday,21,August,Summer,Sunny,None,Alice
+106,8/21/23 9:50,Olivia Green,Walk-in,Coffee,1,2.5,2.5,Cash,Morning,Monday,21,August,Summer,Sunny,None,Bob
+107,8/21/23 10:20,William Baker,Walk-in,Bread Loaf - Sourdough,1,6,6,Card,Midday,Monday,21,August,Summer,Sunny,None,Alice
+108,8/21/23 11:05,Ava Wright,Walk-in,Cookie - Chocolate Chip,2,2,4,Cash,Midday,Monday,21,August,Summer,Sunny,None,Bob
+109,8/21/23 12:25,James Lopez,Walk-in,Sandwich - Ham & Cheese,1,7.5,7.5,Card,Midday,Monday,21,August,Summer,Sunny,None,Alice
+110,8/21/23 13:50,Isabella Hill,Walk-in,Pastry - Apple Turnover,1,4,4,Cash,Afternoon,Monday,21,August,Summer,Sunny,None,Bob
+111,8/21/23 14:35,Sophia Scott,Walk-in,Cake Slice - Chocolate,1,5,5,Card,Afternoon,Monday,21,August,Summer,Sunny,None,Alice
+112,8/21/23 15:23,Benjamin Diaz,Walk-in,Tea - Black,1,3,3,Cash,Afternoon,Monday,21,August,Summer,Sunny,None,Bob
+113,8/21/23 16:10,Mia Phillips,Walk-in,Cookie - Oatmeal Raisin,1,2,2,Card,Afternoon,Monday,21,August,Summer,Sunny,None,Alice
+114,8/21/23 17:27,Samuel Evans,Walk-in,Bread Loaf - Whole Wheat,1,5.5,5.5,Cash,Evening,Monday,21,August,Summer,Sunny,None,Bob
+115,8/21/23 18:45,Charlotte Collins,Walk-in,Coffee - Decaf,1,2.5,2.5,Card,Evening,Monday,21,August,Summer,Sunny,None,Alice
+116,8/21/23 20:00,Henry Stewart,Walk-in,Pastry - Cinnamon Roll,1,4.5,4.5,Cash,Evening,Monday,21,August,Summer,Sunny,None,Bob
+117,8/22/23 7:10,Ella Murphy,Walk-in,Croissant,1,3.5,3.5,Card,Morning,Tuesday,22,August,Summer,Rainy,None,Alice
+118,8/22/23 7:25,Daniel Rogers,Walk-in,Latte,1,4,4,Cash,Morning,Tuesday,22,August,Summer,Rainy,None,Bob
+119,8/22/23 7:55,Chloe Cook,Online Order,Muffin - Blueberry,2,3,6,Card,Morning,Tuesday,22,August,Summer,Rainy,None,Alice
+120,8/22/23 8:35,Michael Morgan,Walk-in,Bagel - Everything,1,3.5,3.5,Cash,Morning,Tuesday,22,August,Summer,Rainy,None,Bob
+121,8/22/23 9:05,Emily Bell,Walk-in,Scone - Blueberry,1,4.5,4.5,Card,Morning,Tuesday,22,August,Summer,Rainy,None,Alice
+122,8/22/23 9:50,Jacob Bailey,Walk-in,Coffee,2,2.5,5,Cash,Morning,Tuesday,22,August,Summer,Rainy,None,Bob
+123,8/22/23 10:25,Madison Reed,Pre-Order,Bread Loaf - Rye,3,5.5,16.5,Card,Midday,Tuesday,22,August,Summer,Rainy,None,Alice
+124,8/22/23 11:10,Joseph Cooper,Walk-in,Cookie - Peanut Butter,4,2,8,Cash,Midday,Tuesday,22,August,Summer,Rainy,None,Bob
+125,8/22/23 12:35,Abigail Richardson,Walk-in,Sandwich - Turkey & Swiss,1,8,8,Card,Midday,Tuesday,22,August,Summer,Rainy,None,Alice
+126,8/22/23 13:55,William Perry,Walk-in,Pastry - Pain au Chocolat,1,4.5,4.5,Cash,Afternoon,Tuesday,22,August,Summer,Rainy,None,Bob
+127,8/22/23 14:40,Elizabeth Foster,Walk-in,Cake Slice - Vanilla,1,5,5,Cheque,Afternoon,Tuesday,22,August,Summer,Rainy,None,Alice
+128,8/22/23 15:25,Alexander Rivera,Walk-in,Tea - Green,1,3,3,Cash,Afternoon,Tuesday,22,August,Summer,Rainy,None,Bob
+129,8/22/23 16:15,Sofia Peterson,Walk-in,Cookie - Sugar,1,2,2,Card,Afternoon,Tuesday,22,August,Summer,Rainy,None,Alice
+130,8/22/23 17:35,James Hayes,Walk-in,Bread Loaf - Multigrain,1,6,6,Cash,Evening,Tuesday,22,August,Summer,Rainy,None,Bob
+131,8/22/23 18:55,Charlotte Gray,Walk-in,Hot Chocolate,1,3.5,3.5,Card,Evening,Tuesday,22,August,Summer,Rainy,None,Alice
+132,8/22/23 20:05,Daniel Bennett,Walk-in,Pastry - Croissant Almond,1,5,5,Cash,Evening,Tuesday,22,August,Summer,Rainy,None,Bob
