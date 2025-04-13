@@ -1,4 +1,4 @@
-![Uploading Example Use.png…]()
+<img width="741" alt="Example Use" src="https://github.com/user-attachments/assets/2cd812a6-b399-4d5b-8fd7-2d6449677542" />
 
  #Gutted_DataHammer: Advanced Data Analytics Platform
 
