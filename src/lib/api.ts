@@ -29,11 +29,29 @@ export const analyzeFile = async (file: File, userInstructions: string) => {
         'Content-Type': 'multipart/form-data',
       },
     });
+
+    // console.log(response)
     
+    // // Extract markdown content between code fences (```)
+    // let markdownContent = '';
+    // const responseText = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
+    // const markdownRegex = /```([\s\S]*?)```/g;
+    // const matches = responseText.match(markdownRegex);
+
+    // if (matches && matches.length > 0) {
+    //   // Join all markdown blocks found
+    //   markdownContent = matches.map(match => match.replace(/```/g, '').trim()).join('\n\n');
+    //   // response.data = { 
+    //   //   ...response.data,
+    //   //   extractedMarkdown: markdownContent 
+    //   // };
+    // } else {
+    //   markdownContent = responseText;
+    // }
     return {
       success: true,
       message: 'Analysis completed successfully',
-      data: response.data,
+      data: response,
     };
   } catch (error) {
     console.error('Error analyzing file:', error);

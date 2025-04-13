@@ -9,11 +9,13 @@ from llama_index.llms.gemini import Gemini
 from llama_index.core.agent.workflow import AgentWorkflow, FunctionAgent
 from llama_index.core.workflow import Context
 from llama_index.core.tools import FunctionTool
+from llama_index.core.workflow import JsonSerializer
 
 # Import the agents
 from agents.data_loading_agent import make_data_loading_agent
 from agents.data_exploration_agent import make_data_exploration_agent
 from agents.manager_agent import make_manager_agent
+from agents.reporting_agent import make_reporting_agent
 import pandas as pd
 import io
 
@@ -86,10 +88,9 @@ async def analyze_data(
     # Create all agents
     data_agent = make_data_loading_agent(llm=llm)
     exploration_agent = make_data_exploration_agent(llm=llm)
+    reporting_agent = make_reporting_agent(llm=llm)
     manager_agent = make_manager_agent(llm=llm)
 
-    # Create a data exploration agent for data analysis
-    exploration_agent = make_data_exploration_agent(llm=llm)
     # Set default analysis message if no user instructions provided
     analysis_message = "Analyze this CSV file and provide summary statistics"
 
@@ -99,7 +100,7 @@ async def analyze_data(
 
     # Initialize workflow with DataFrame in context and manager as root agent
     workflow = AgentWorkflow(
-        agents=[data_agent, exploration_agent, manager_agent],
+        agents=[data_agent, exploration_agent, reporting_agent, manager_agent],
         root_agent=manager_agent.name,  # Set manager agent as the root
         initial_state={
             "Plan": "No plan made so far.",
@@ -121,11 +122,22 @@ async def analyze_data(
     # Run the CSV analysis workflow
     response = await workflow.run(user_msg=analysis_message, ctx=ctx)
 
-    return {
-        "message": "CSV analysis completed",
-        "data": response,
-        "user_instructions": user_instructions,
-    }
+    # # Get the final report and report sections from the state
+    # final_report = ""
+    # report_sections = []
+    # # ctx_dict = ctx.to_dict(serializer=JsonSerializer())
+    # state = ctx.get("state", {})
+
+    # # Get final report or report sections from state using .get() method
+    # print("State:", state)
+
+    # final_report = state.get("final_report", "")
+    # if not final_report:
+    #     final_report = state.get("report_sections", "")
+    # if not final_report:
+    #     final_report = response
+
+    return {"final_report": response}
 
 
 @app.get("/")

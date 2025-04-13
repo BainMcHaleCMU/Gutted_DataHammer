@@ -94,6 +94,9 @@ export default function HomeClient() {
     setCurrentFile(null);
   };
 
+  console.log(analysisResult)
+
+
   return (
     <Box as="main" minH="100vh" py={8} px={4}>
       <VStack spacing={8} align="stretch" maxW="800px" mx="auto">
@@ -139,7 +142,36 @@ export default function HomeClient() {
         {analysisResult && (
           <Box w="full" p={6} borderWidth={1} borderRadius="md" bg="white">
             <Heading as="h2" size="md" mb={4}>Analysis Results</Heading>
-            <pre>{JSON.stringify(analysisResult, null, 2)}</pre>
+            <Box 
+              maxH="400px" 
+              overflowY="auto" 
+              whiteSpace="pre-wrap" 
+              fontFamily="monospace"
+              p={2}
+            >
+              {typeof analysisResult === 'object' && analysisResult !== null ? (
+                Object.entries(analysisResult).map(([key, value]) => (
+                  <Box key={key} mb={6} borderBottom="1px solid" borderColor="gray.200" pb={4}>
+                    <Text fontWeight="bold" fontSize="lg" mb={2}>{key}</Text>
+                    {typeof value === 'string' ? (
+                      <Box 
+                        ml={2}
+                        dangerouslySetInnerHTML={{ 
+                          __html: value
+                            .split('\n')
+                            .map(line => line.trim())
+                            .join('<br />')
+                        }}
+                      />
+                    ) : (
+                      <Text ml={2} whiteSpace="pre-wrap">{JSON.stringify(value, null, 2)}</Text>
+                    )}
+                  </Box>
+                ))
+              ) : (
+                <Text>{JSON.stringify(analysisResult, null, 2)}</Text>
+              )}
+            </Box>
           </Box>
         )}
       </VStack>
