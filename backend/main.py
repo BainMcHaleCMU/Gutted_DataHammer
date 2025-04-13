@@ -12,6 +12,9 @@ from llama_index.core.tools import FunctionTool
 
 # Import the new DataLoadingAgent
 from agents.data_loading_agent import make_data_loading_agent
+
+# Import the new DataExplorationAgent
+from agents.data_exploration_agent import make_data_exploration_agent
 import pandas as pd
 import io
 
@@ -20,7 +23,7 @@ load_dotenv()
 
 app = FastAPI(title="DataHammer Analytics API")
 llm = Gemini(
-    model="models/gemini-1.5-flash",
+    model="models/gemini-2.0-flash",
     api_key=os.environ.get("GOOGLE_API_KEY"),
 )
 
@@ -62,8 +65,7 @@ divide_tool = FunctionTool.from_defaults(fn=divide)
 
 @app.post("/analyze")
 async def analyze_data(
-    file: UploadFile = File(...),
-    user_instructions: str = Form(None)
+    file: UploadFile = File(...), user_instructions: str = Form(None)
 ):
     """
     Analyze data using the DataLoadingAgent.
@@ -85,28 +87,32 @@ async def analyze_data(
     # Create a data loading agent specialized for CSV processing
     data_agent = make_data_loading_agent(llm=llm)
 
+    # Create a data exploration agent for data analysis
+    exploration_agent = make_data_exploration_agent(llm=llm)
     # Set default analysis message if no user instructions provided
     analysis_message = "Analyze this CSV file and provide summary statistics"
-    
+
     # Use user instructions if provided
     if user_instructions:
         analysis_message = f"Analyze this CSV file with the following instructions: {user_instructions}"
 
     # Initialize workflow with DataFrame in context
     workflow = AgentWorkflow(
-        agents=[data_agent],
+        agents=[data_agent, exploration_agent],
         root_agent=data_agent.name,
         initial_state={
             "Plan": "Process and analyze CSV data based on user instructions",
             "DataFrame": df,
             "File Name": file.filename,
             "File Type": "CSV",
-            "User Instructions": user_instructions or "No specific instructions provided",
+            "Observations": [],
         },
     )
 
-    # Run the CSV analysis workflow with user instructions
-    response = await workflow.run(user_msg=analysis_message)
+    ctx = Context(workflow=workflow)
+
+    # Run the CSV analysis workflow
+    response = await workflow.run(user_msg=analysis_message, ctx=ctx)
 
     return {
         "message": "CSV analysis completed",
