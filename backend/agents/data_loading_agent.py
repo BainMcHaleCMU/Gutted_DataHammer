@@ -566,6 +566,8 @@ def make_data_loading_agent(llm) -> FunctionAgent:
     agent = FunctionAgent(
         # tools=tools,
         llm=llm,
+        name="DataLoadingAgent",
+        description="A data loading agent that can load and analyze data from various sources.",
         system_prompt="""
         You are a data loading assistant that can help load and analyze data from various sources. Your goal is to help the user.
         You can load data from files (CSV, Excel, JSON), and then analyze the data to provide insights.

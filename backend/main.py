@@ -12,6 +12,9 @@ from llama_index.core.tools import FunctionTool
 
 # Import the new DataLoadingAgent
 from agents.data_loading_agent import make_data_loading_agent
+
+# Import the new DataExplorationAgent
+from agents.data_exploration_agent import make_data_exploration_agent
 import pandas as pd
 import io
 
@@ -84,15 +87,19 @@ async def analyze_data(file: UploadFile = File(...)):
     # Create a data loading agent specialized for CSV processing
     data_agent = make_data_loading_agent(llm=llm)
 
+    # Create a data exploration agent for data analysis
+    exploration_agent = make_data_exploration_agent(llm=llm)
+
     # Initialize workflow with DataFrame in context
     workflow = AgentWorkflow(
-        agents=[data_agent],
+        agents=[data_agent, exploration_agent],
         root_agent=data_agent.name,
         initial_state={
             "Plan": "Process and analyze CSV data",
             "DataFrame": df,
             "File Name": file.filename,
             "File Type": "CSV",
+            "Observations": [],
         },
     )
 
