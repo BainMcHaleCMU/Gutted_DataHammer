@@ -1,7 +1,9 @@
 /**
- * Mock service for data processing
- * This would be replaced with actual API calls in a real implementation
+ * Service for data processing
+ * Connects to the backend API for data analysis
  */
+
+import { analyzeFile } from './api';
 
 export interface ProcessingResult {
   success: boolean;
@@ -9,6 +11,26 @@ export interface ProcessingResult {
   data?: any;
   error?: string;
 }
+
+// Global file storage - this is a temporary solution
+// In a production app, we would use a more robust state management solution
+let currentFile: File | null = null;
+
+/**
+ * Set the current file for processing
+ * @param file The file to be processed
+ */
+export const setCurrentFile = (file: File | null) => {
+  currentFile = file;
+};
+
+/**
+ * Get the current file
+ * @returns The current file or null if none is set
+ */
+export const getCurrentFile = (): File | null => {
+  return currentFile;
+};
 
 /**
  * Process data based on user instructions
@@ -20,36 +42,30 @@ export const processData = async (
   instructions: string,
   dataType: string
 ): Promise<ProcessingResult> => {
-  // This is a mock implementation
-  // In a real app, this would call a backend API
-  
+  // Log the processing request
   console.log(`Processing ${dataType} data with instructions: ${instructions}`);
   
-  // Simulate API call with timeout
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Mock successful response
-      resolve({
-        success: true,
-        message: 'Data processed successfully',
-        data: {
-          summary: 'Processed data according to instructions',
-          dataType,
-          instructionsApplied: instructions,
-          timestamp: new Date().toISOString(),
-        },
-      });
-      
-      // For error simulation, uncomment this:
-      /*
-      resolve({
-        success: false,
-        message: 'Failed to process data',
-        error: 'Invalid instructions format',
-      });
-      */
-    }, 1500); // Simulate 1.5s processing time
-  });
+  // Check if we have a file to process
+  if (!currentFile) {
+    return {
+      success: false,
+      message: 'No file available for processing',
+      error: 'Please upload a file first',
+    };
+  }
+  
+  try {
+    // Call the API to analyze the file with user instructions
+    const result = await analyzeFile(currentFile, instructions);
+    return result;
+  } catch (error) {
+    console.error('Error in processData:', error);
+    return {
+      success: false,
+      message: 'Failed to process data',
+      error: error instanceof Error ? error.message : 'Unknown error occurred',
+    };
+  }
 };
 
 /**
