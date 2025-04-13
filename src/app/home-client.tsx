@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Box, VStack, Heading, Button, Text, Textarea, useToast } from '@chakra-ui/react';
 import { useState } from 'react';
-import { processData } from '@/lib/dataProcessingService';
+import { processData, setCurrentFile } from '@/lib/dataProcessingService';
 
 // Use dynamic import to avoid hydration issues with client components
 const FileUpload = dynamic(() => import('@/components/FileUpload'), {
@@ -77,10 +77,12 @@ export default function HomeClient() {
     }
   };
 
-  // Updated to receive dataType from FileUpload component
+  // Updated to receive dataType from FileUpload component and store file in service
   const handleFileSelected = (selectedFile: File, inferredDataType: string) => {
     setFile(selectedFile);
     setDataType(inferredDataType);
+    // Store the file in the service for later use
+    setCurrentFile(selectedFile);
   };
 
   // Add handler for file deletion
@@ -88,6 +90,8 @@ export default function HomeClient() {
     setFile(null);
     setDataType('csv');
     setAnalysisResult(null);
+    // Also clear the file in the service
+    setCurrentFile(null);
   };
 
   return (
