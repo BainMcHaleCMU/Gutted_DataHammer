@@ -1,5 +1,4 @@
-<img width="818" alt="Book Example" src="https://github.com/user-attachments/assets/6f60ca95-0381-4804-b849-eadb35842adf" />
-
+![Uploading Example Use.png…]()
 
  #Gutted_DataHammer: Advanced Data Analytics Platform
 
