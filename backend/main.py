@@ -88,6 +88,8 @@ async def analyze_data(
     exploration_agent = make_data_exploration_agent(llm=llm)
     manager_agent = make_manager_agent(llm=llm)
 
+    # Create a data exploration agent for data analysis
+    exploration_agent = make_data_exploration_agent(llm=llm)
     # Set default analysis message if no user instructions provided
     analysis_message = "Analyze this CSV file and provide summary statistics"
 
