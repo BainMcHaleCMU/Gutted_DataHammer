@@ -94,7 +94,7 @@ export default function HomeClient() {
     setCurrentFile(null);
   };
 
-  console.log(analysisResult)
+  const summary_string = analysisResult?.data?.final_report?.response?.blocks[0]?.text || '';
 
 
   return (
@@ -149,28 +149,7 @@ export default function HomeClient() {
               fontFamily="monospace"
               p={2}
             >
-              {typeof analysisResult === 'object' && analysisResult !== null ? (
-                Object.entries(analysisResult).map(([key, value]) => (
-                  <Box key={key} mb={6} borderBottom="1px solid" borderColor="gray.200" pb={4}>
-                    <Text fontWeight="bold" fontSize="lg" mb={2}>{key}</Text>
-                    {typeof value === 'string' ? (
-                      <Box 
-                        ml={2}
-                        dangerouslySetInnerHTML={{ 
-                          __html: value
-                            .split('\n')
-                            .map(line => line.trim())
-                            .join('<br />')
-                        }}
-                      />
-                    ) : (
-                      <Text ml={2} whiteSpace="pre-wrap">{JSON.stringify(value, null, 2)}</Text>
-                    )}
-                  </Box>
-                ))
-              ) : (
-                <Text>{JSON.stringify(analysisResult, null, 2)}</Text>
-              )}
+              <Text>{summary_string}</Text>
             </Box>
           </Box>
         )}
