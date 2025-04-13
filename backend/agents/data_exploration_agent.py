@@ -635,8 +635,10 @@ def make_data_exploration_agent(llm) -> FunctionAgent:
         For specific questions about columns, use the specialized tools like analyze_numeric_column, analyze_categorical_column, or detect_outliers.
         
         If asked about visualizations, describe what would be helpful to visualize, even though you can't create the visualizations directly.
+        
+        After completing your analysis or answering the user's question about data exploration, always hand off back to the ManagerAgent.
         """,
-        can_handoff_to=["DataLoadingAgent"],
+        can_handoff_to=["ManagerAgent"],
     )
 
     return agent
