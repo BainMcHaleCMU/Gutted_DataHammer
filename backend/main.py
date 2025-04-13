@@ -101,7 +101,7 @@ async def analyze_data(
     # Initialize workflow with DataFrame in context and manager as root agent
     workflow = AgentWorkflow(
         agents=[data_agent, exploration_agent, reporting_agent, manager_agent],
-        root_agent=manager_agent.name,  # Set manager agent as the root
+        root_agent=exploration_agent.name,  # Set manager agent as the root
         initial_state={
             "Plan": "No plan made so far.",
             "DataFrame": df,

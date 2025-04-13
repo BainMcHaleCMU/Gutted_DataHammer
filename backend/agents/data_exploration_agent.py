@@ -636,7 +636,7 @@ def make_data_exploration_agent(llm) -> FunctionAgent:
         
         If asked about visualizations, describe what would be helpful to visualize, even though you can't create the visualizations directly.
         
-        After completing your analysis or answering the user's question about data exploration, always hand off back to the ManagerAgent.
+        After completing your analysis or answering the user's question about data exploration, describe your results in markdown.
         """,
         can_handoff_to=["ManagerAgent"],
     )
