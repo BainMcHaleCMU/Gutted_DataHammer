@@ -1,4 +1,5 @@
-# Gutted_DataHammer: Advanced Data Analytics Platform
+<img width="818" alt="Book Example" src="https://github.com/user-attachments/assets/6f60ca95-0381-4804-b849-eadb35842adf" />
+ #Gutted_DataHammer: Advanced Data Analytics Platform
 
 A modern Next.js application with Chakra UI and TypeScript for data analytics. This application allows users to upload spreadsheet files for data analysis, cleaning, visualization, and predictive modeling with enhanced AI-powered capabilities.
 
