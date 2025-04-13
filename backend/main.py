@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
@@ -61,10 +61,13 @@ divide_tool = FunctionTool.from_defaults(fn=divide)
 
 
 @app.post("/analyze")
-async def analyze_data(file: UploadFile = File(...)):
+async def analyze_data(
+    file: UploadFile = File(...),
+    user_instructions: str = Form(None)
+):
     """
     Analyze data using the DataLoadingAgent.
-    Loads and analyzes CSV files for data insights.
+    Loads and analyzes CSV files for data insights based on user instructions.
     """
     # Verify file is CSV
     if not file.filename.endswith(".csv"):
@@ -76,34 +79,39 @@ async def analyze_data(file: UploadFile = File(...)):
     # Read the file content
     file_content = await file.read()
 
-    # Convert file content to DataFrame
-
     # Create DataFrame from CSV content
     df = pd.read_csv(io.BytesIO(file_content))
 
     # Create a data loading agent specialized for CSV processing
     data_agent = make_data_loading_agent(llm=llm)
 
+    # Set default analysis message if no user instructions provided
+    analysis_message = "Analyze this CSV file and provide summary statistics"
+    
+    # Use user instructions if provided
+    if user_instructions:
+        analysis_message = f"Analyze this CSV file with the following instructions: {user_instructions}"
+
     # Initialize workflow with DataFrame in context
     workflow = AgentWorkflow(
         agents=[data_agent],
         root_agent=data_agent.name,
         initial_state={
-            "Plan": "Process and analyze CSV data",
+            "Plan": "Process and analyze CSV data based on user instructions",
             "DataFrame": df,
             "File Name": file.filename,
             "File Type": "CSV",
+            "User Instructions": user_instructions or "No specific instructions provided",
         },
     )
 
-    # Run the CSV analysis workflow
-    response = await workflow.run(
-        user_msg="Analyze this CSV file and provide summary statistics"
-    )
+    # Run the CSV analysis workflow with user instructions
+    response = await workflow.run(user_msg=analysis_message)
 
     return {
         "message": "CSV analysis completed",
         "data": response,
+        "user_instructions": user_instructions,
     }
 
 
