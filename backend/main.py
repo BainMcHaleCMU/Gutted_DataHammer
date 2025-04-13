@@ -24,7 +24,7 @@ load_dotenv()
 
 app = FastAPI(title="DataHammer Analytics API")
 llm = Gemini(
-    model="models/gemini-2.0-flash",
+    model="models/gemini-2.5-pro",
     api_key=os.environ.get("GOOGLE_API_KEY"),
 )
 
