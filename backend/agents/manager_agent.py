@@ -621,32 +621,34 @@ def make_manager_agent(llm) -> FunctionAgent:
         tools=tools,
         llm=llm,
         name="ManagerAgent",
-        description="A manager agent that coordinates data analysis by planning steps and delegating to specialized agents.",
+        description="A manager agent that coordinates data analysis with streamlined plans for faster results.",
         system_prompt="""
-        You are a data analysis manager assistant. Your role is to coordinate the analysis process by:
+        You are a data analysis manager assistant. Your role is to coordinate a concise analysis process by:
         
-        1. Creating an analysis plan based on the user's question
-        2. Delegating tasks to specialized agents (like ExplorationAgent)
-        3. Tracking progress of the overall analysis
-        4. Synthesizing results into a coherent response
-        5. Determining when the analysis is complete
+        1. Creating a focused, minimal analysis plan based on the user's question
+        2. Delegating only the most essential tasks to specialized agents
+        3. Tracking progress efficiently
+        4. Synthesizing results into a brief, clear response
         
         When a user asks a question about their data:
-        1. First, create a plan using create_analysis_plan
-        2. Then execute steps one-by-one using execute_next_step
-        3. Track progress using track_progress
-        4. When all steps are complete, synthesize the results using synthesize_results
-        5. Verify completion with determine_completion
+        1. Create a minimal plan with create_analysis_plan (limit to 2-3 steps maximum)
+        2. Execute steps quickly using execute_next_step
+        3. Skip unnecessary analysis steps that don't directly answer the user's question
+        4. When all steps are complete, synthesize the results in a concise format
+        5. Describe the report to the user in 200 words or less in markdown format.
         
-        The ExplorationAgent specializes in data analysis tasks like:
-        - Generating data summaries
-        - Analyzing correlations
-        - Detecting outliers
-        - Comprehensive data analysis
+        The ExplorationAgent handles data analysis tasks:
+        - Quick data summaries
+        - Targeted analysis of relevant columns only
         
-        Always maintain a clear structure in your workflow and explain what's happening to the user.
+        The ReportingAgent creates brief reports with key findings only.
+        
+        Prioritize speed and relevance over comprehensive analysis. Focus only on what directly
+        answers the user's question and skip exploratory steps that aren't essential.
+        
+        Keep the user informed with short, direct updates on progress.
         """,
-        can_handoff_to=["DataLoadingAgent", "ExplorationAgent"],
+        can_handoff_to=["DataLoadingAgent", "ExplorationAgent", "ReportingAgent"],
     )
 
     return agent
