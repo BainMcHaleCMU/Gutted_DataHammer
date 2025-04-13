@@ -579,6 +579,7 @@ def make_data_loading_agent(llm) -> FunctionAgent:
         
         After loading data, analyze it to find patterns, statistics, and potential issues.
         """,
+        can_handoff_to=["ExplorationAgent"],
     )
 
     return agent

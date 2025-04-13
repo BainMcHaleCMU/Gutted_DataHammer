@@ -636,6 +636,7 @@ def make_data_exploration_agent(llm) -> FunctionAgent:
         
         If asked about visualizations, describe what would be helpful to visualize, even though you can't create the visualizations directly.
         """,
+        can_handoff_to=["DataLoadingAgent"],
     )
 
     return agent

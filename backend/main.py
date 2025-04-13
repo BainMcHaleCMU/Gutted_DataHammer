@@ -23,7 +23,7 @@ load_dotenv()
 
 app = FastAPI(title="DataHammer Analytics API")
 llm = Gemini(
-    model="models/gemini-1.5-flash",
+    model="models/gemini-2.0-flash",
     api_key=os.environ.get("GOOGLE_API_KEY"),
 )
 
@@ -103,9 +103,11 @@ async def analyze_data(file: UploadFile = File(...)):
         },
     )
 
+    ctx = Context(workflow=workflow)
+
     # Run the CSV analysis workflow
     response = await workflow.run(
-        user_msg="Analyze this CSV file and provide summary statistics"
+        user_msg="Analyze this CSV file and provide summary statistics", ctx=ctx
     )
 
     return {
